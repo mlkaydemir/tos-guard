@@ -1,0 +1,32 @@
+{
+  "id": "eval-04-x-twitter-tos",
+  "name": "X (Twitter) Kullanım Şartları",
+  "documentTitle": "X Terms of Service Agreement",
+  "rawText": "X Terms of Service\n\n1. Basic Terms. You are responsible for your use of the Services and for any Content you provide.\n\n2. License to Your Content. You grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display, and distribute such Content. You agree that this license includes the right for X to train our machine learning and artificial intelligence models on your Content.\n\n3. Ending These Terms. You may end your legal agreement with X at any time by deactivating your accounts.\n\n4. Limitation of Liability. To the maximum extent permitted by law, X disclaims all warranties. In no event shall the aggregate liability of X exceed the greater of one hundred U.S. dollars ($100.00) or the amount you paid X in the past six months.\n\n5. Dispute Resolution. All disputes shall be resolved by binding arbitration in San Francisco, California, and you waive any right to participate in a class action lawsuit or jury trial.",
+  "groundTruth": {
+    "expectedRisks": [
+      {
+        "category": "Fikri Mülkiyet & Lisans",
+        "severity": "Kritik",
+        "keyword": "train our machine learning and artificial intelligence models on your Content",
+        "description": "Kullanıcı tweet ve içerikleriyle yapay zeka modelleri eğitimi"
+      },
+      {
+        "category": "Sorumluluk Sınırlandırması",
+        "severity": "Orta",
+        "keyword": "aggregate liability of X exceed the greater of one hundred U.S. dollars ($100.00)",
+        "description": "Aşırı düşük sorumluluk tavanı ($100)"
+      },
+      {
+        "category": "Tahkim ve Yargı Yetkisi",
+        "severity": "Kritik",
+        "keyword": "binding arbitration in San Francisco, California, and you waive any right to participate in a class action lawsuit",
+        "description": "Zorunlu tahkim ve toplu dava feragati"
+      }
+    ],
+    "safeClauses": [
+      "You are responsible for your use of the Services and for any Content you provide.",
+      "You may end your legal agreement with X at any time by deactivating your accounts."
+    ]
+  }
+}

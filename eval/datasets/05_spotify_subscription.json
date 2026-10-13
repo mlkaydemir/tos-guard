@@ -1,0 +1,32 @@
+{
+  "id": "eval-05-spotify-subscription",
+  "name": "Spotify Kullanıcı Sözleşmesi ve Abonelik Şartları",
+  "documentTitle": "Spotify Subscription & Billing Terms",
+  "rawText": "Spotify Terms and Conditions of Use\n\n1. Introduction. Welcome to Spotify. By signing up or otherwise using Spotify, you agree to these terms.\n\n2. Subscription and Auto-Renewal. Your Paid Subscription will automatically renew at the end of each subscription period unless you cancel your Paid Subscription before the end of the current period. The cancellation will take effect the day after the last day of the current subscription period.\n\n3. Price Changes. Spotify may change the price for the Paid Subscriptions from time to time. Price changes will take effect at the start of the next subscription period following the date of the price change.\n\n4. No Refunds Policy. To the fullest extent permitted by applicable law, your subscription fees are non-refundable and we do not provide refunds or credits for any partial subscription periods or unused content.\n\n5. Termination by Spotify. Spotify reserves the right to terminate your account immediately at its sole discretion without prior notice if we believe you violate these terms.\n\n6. Customer Support. For customer queries regarding your account and payments, please visit our customer support portal at support.spotify.com.",
+  "groundTruth": {
+    "expectedRisks": [
+      {
+        "category": "Otomatik Yenileme ve Ücretlendirme",
+        "severity": "Orta",
+        "keyword": "automatically renew at the end of each subscription period",
+        "description": "Otomatik yenilenen abonelik ve ücret tahsili"
+      },
+      {
+        "category": "Otomatik Yenileme ve Ücretlendirme",
+        "severity": "Orta",
+        "keyword": "non-refundable and we do not provide refunds or credits for any partial subscription periods",
+        "description": "İadesizlik politikası (No Refunds)"
+      },
+      {
+        "category": "Tek Taraflı Değişiklik ve Fesih",
+        "severity": "Yüksek",
+        "keyword": "terminate your account immediately at its sole discretion without prior notice",
+        "description": "Önceden bildirimsiz derhal tek taraflı fesih hakkı"
+      }
+    ],
+    "safeClauses": [
+      "Welcome to Spotify. By signing up or otherwise using Spotify, you agree to these terms.",
+      "For customer queries regarding your account and payments, please visit our customer support portal at support.spotify.com."
+    ]
+  }
+}

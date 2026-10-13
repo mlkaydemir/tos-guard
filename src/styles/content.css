@@ -1,0 +1,144 @@
+/* ToS-Guard In-Page Floating Widget & Highlight Styles */
+
+#tos-guard-floating-pill {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483640;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+#tos-guard-floating-pill:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 32px -4px rgba(0, 0, 0, 0.4);
+  background: rgba(15, 23, 42, 0.98);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+#tos-guard-floating-pill .tos-pill-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tos-guard-floating-pill .tos-pill-score {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.tos-score-critical {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.tos-score-high {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.tos-score-medium {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.tos-score-low {
+  background: #10b981;
+  color: #ffffff;
+}
+
+/* In-Page Text Highlight Glow */
+.tos-guard-highlight {
+  background: rgba(245, 158, 11, 0.28) !important;
+  border-left: 4px solid #f59e0b !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  transition: all 0.4s ease !important;
+  outline: 2px solid rgba(245, 158, 11, 0.5) !important;
+}
+
+.tos-guard-highlight.tos-hl-critical {
+  background: rgba(239, 68, 68, 0.28) !important;
+  border-left: 4px solid #ef4444 !important;
+  outline: 2px solid rgba(239, 68, 68, 0.6) !important;
+}
+
+.tos-guard-highlight-pulse {
+  animation: tosPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes tosPulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* Modal In-Page Card (if expanded on page) */
+#tos-guard-modal-card {
+  position: fixed;
+  bottom: 80px;
+  right: 24px;
+  width: 360px;
+  max-height: 480px;
+  background: #0f172a;
+  color: #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 2147483641;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  animation: tosSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tosSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#tos-guard-modal-card .tos-modal-header {
+  padding: 14px 16px;
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#tos-guard-modal-card .tos-modal-body {
+  padding: 14px 16px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#tos-guard-modal-card .tos-disclaimer-badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 11px;
+  margin-top: 10px;
+  line-height: 1.4;
+}

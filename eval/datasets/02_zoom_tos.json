@@ -1,0 +1,32 @@
+{
+  "id": "eval-02-zoom-tos",
+  "name": "Zoom Hizmet Koşulları (Yapay Zeka ve Telemetri Tartışması)",
+  "documentTitle": "Zoom Terms of Service Section 10",
+  "rawText": "Zoom Video Communications, Inc. Terms of Service\n\nSection 10. Software and Service Content.\n\n10.1 Customer Content. You represent and warrant that you have all rights to upload Customer Content to the Zoom platform.\n\n10.2 AI and Model Development. You agree to grant Zoom a perpetual, worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use Customer Content for the purpose of machine learning and artificial intelligence training and algorithm optimization.\n\n10.3 Service Generated Data. Zoom retains all ownership, rights, and title in Service Generated Data, including diagnostic telemetry, session length, and audio/video feature usage metadata.\n\n10.4 Third-Party Sharing. We may share your personal data with third parties and marketing partners to optimize platform functionality and delivery.\n\n10.5 Disclaimer of Warranties. The services are provided as is and as available without warranty of any kind, express or implied, including fitness for a particular purpose.\n\n10.6 Contact Us. If you have questions regarding these terms, you may contact our support center at privacy@zoom.us.",
+  "groundTruth": {
+    "expectedRisks": [
+      {
+        "category": "Fikri Mülkiyet & Lisans",
+        "severity": "Kritik",
+        "keyword": "perpetual, worldwide, non-exclusive, royalty-free, sublicensable, and transferable license to use Customer Content for the purpose of machine learning and artificial intelligence training",
+        "description": "Müşteri içerikleriyle yapay zeka modelleri eğitimi ve küresel lisans"
+      },
+      {
+        "category": "Veri ve Gizlilik",
+        "severity": "Yüksek",
+        "keyword": "share your personal data with third parties and marketing partners",
+        "description": "Kişisel verilerin üçüncü taraflarla paylaşılması"
+      },
+      {
+        "category": "Sorumluluk Sınırlandırması",
+        "severity": "Orta",
+        "keyword": "services are provided as is and as available without warranty of any kind",
+        "description": "Garanti ve sorumluluk reddi (As Is)"
+      }
+    ],
+    "safeClauses": [
+      "Customer Content. You represent and warrant that you have all rights to upload Customer Content to the Zoom platform.",
+      "If you have questions regarding these terms, you may contact our support center at privacy@zoom.us."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "tos-guard",
+  "version": "1.0.0",
+  "description": "Chrome Extension for Terms of Service & Privacy Policy Risk Analysis with Deterministic Citation Grounding and Prompt Injection Defense",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "npm run test:security && npm run eval",
+    "test:security": "node security/injection_test.js",
+    "eval": "node eval/eval_runner.js",
+    "test:e2e": "npx cypress run --spec cypress/e2e/tos_guard_demo.cy.js",
+    "cypress:open": "npx cypress open"
+  },
+  "keywords": [
+    "chrome-extension",
+    "terms-of-service",
+    "privacy-policy",
+    "llm-guardrails",
+    "prompt-injection-defense",
+    "deterministic-citation-grounding"
+  ],
+  "author": "ToS-Guard Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^15.21.1"
+  }
+}

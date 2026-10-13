@@ -1,0 +1,32 @@
+{
+  "id": "eval-03-tiktok-privacy",
+  "name": "TikTok Gizlilik Politikası (Privacy Policy)",
+  "documentTitle": "TikTok Privacy Policy - Information We Collect",
+  "rawText": "TikTok Privacy Policy\n\n1. Information You Provide. We collect information you provide when creating an account, including birthday, email, and phone number.\n\n2. Biometric Data Collection. We may collect biometric identifiers and biometric information as defined under applicable laws, including faceprints and voiceprints from your user content, video uploads, and livestreams, with your consent where required by law.\n\n3. Keystroke and Behavioral Tracking. We collect keystroke patterns and rhythm, battery status, screen resolution, clipboard text, audio settings, and connected audio devices across your devices.\n\n4. Third-Party Sharing and Advertising. We share your personal data with third parties, business partners, advertising networks, and measurement providers for targeted cross-context behavioral advertising.\n\n5. Law Enforcement Cooperation. We may disclose your information to law enforcement agencies upon lawful requests.\n\n6. Managing Your Information. You may download a copy of your account data through the in-app privacy settings.",
+  "groundTruth": {
+    "expectedRisks": [
+      {
+        "category": "Veri ve Gizlilik",
+        "severity": "Kritik",
+        "keyword": "collect biometric identifiers and biometric information as defined under applicable laws, including faceprints and voiceprints",
+        "description": "Biyometrik yüz ve ses izi (faceprint/voiceprint) toplanması"
+      },
+      {
+        "category": "Veri ve Gizlilik",
+        "severity": "Kritik",
+        "keyword": "collect keystroke patterns and rhythm",
+        "description": "Tuş vuruş ritmi ve davranışsal izleme"
+      },
+      {
+        "category": "Veri ve Gizlilik",
+        "severity": "Yüksek",
+        "keyword": "share your personal data with third parties, business partners, advertising networks",
+        "description": "Davranışsal reklam için üçüncü taraflarla veri paylaşımı"
+      }
+    ],
+    "safeClauses": [
+      "We collect information you provide when creating an account, including birthday, email, and phone number.",
+      "You may download a copy of your account data through the in-app privacy settings."
+    ]
+  }
+}

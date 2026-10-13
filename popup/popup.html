@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToS-Guard | Risk Analiz Raporu</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-icon">🛡️</div>
+        <div>
+          <h1 class="brand-title">ToS-Guard</h1>
+          <p class="brand-sub">Koşullar & Gizlilik Risk Analizcisi</p>
+        </div>
+      </div>
+      <button id="open-settings-btn" class="icon-btn" title="Ayarlar (API Anahtarı)">⚙️</button>
+    </header>
+
+    <!-- Prominent Legal Disclaimer -->
+    <div class="legal-disclaimer-box" id="legal-disclaimer">
+      <span class="warning-icon">⚠️</span>
+      <p><strong>Yasal Uyarı:</strong> Bu uygulama hukuki tavsiye (legal advice) vermez. Yalnızca yapay zeka tabanlı bilgilendirme raporudur.</p>
+    </div>
+
+    <!-- Page Info & Action -->
+    <div class="page-action-card">
+      <div class="target-page-meta">
+        <span class="page-type-tag" id="page-type-badge">Yasal Belge</span>
+        <h2 class="target-title" id="page-title-display">Sayfa Başlığı Yükleniyor...</h2>
+      </div>
+      <button id="analyze-btn" class="primary-btn">
+        <span class="btn-icon">⚡</span>
+        <span id="btn-text">Sözleşmeyi Analiz Et</span>
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container hidden" id="loading-state">
+      <div class="spinner"></div>
+      <p id="loading-step-text" class="loading-step">DOM taranıyor ve alıntılar çıkarılıyor...</p>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Main Results View -->
+    <main class="results-container hidden" id="results-view">
+      <!-- Security Banner (Prompt Injection) -->
+      <div class="security-banner-safe" id="security-banner">
+        <span class="sec-icon" id="sec-icon">🛡️</span>
+        <div class="sec-text" id="sec-text">Güvenlik Denetimi: Sayfada gizli prompt injection tespit edilmedi.</div>
+      </div>
+
+      <!-- Risk Score Card -->
+      <section class="score-card">
+        <div class="score-circle-container">
+          <div class="score-circle" id="score-circle">
+            <span class="score-number" id="score-val">--</span>
+            <span class="score-max">/100</span>
+          </div>
+        </div>
+        <div class="score-info">
+          <div class="risk-badge" id="risk-badge">Bilinmiyor</div>
+          <p class="summary-text" id="summary-tr-text">Sözleşme analizi özeti buraya gelecek.</p>
+        </div>
+      </section>
+
+      <!-- Verification Quality Stats -->
+      <section class="verification-stats-card">
+        <div class="stat-item">
+          <span class="stat-num" id="stat-verified-count">0</span>
+          <span class="stat-lbl">Doğrulanmış Madde</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-rate">100%</span>
+          <span class="stat-lbl">Alıntı Temellendirme</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num stat-rejected" id="stat-invalid-count">0</span>
+          <span class="stat-lbl">Elenen Halüsinasyon</span>
+        </div>
+      </section>
+
+      <!-- Honest Uncertainty & Ambiguity Disclosure -->
+      <section class="uncertainty-card hidden" id="uncertainty-box">
+        <div class="card-title-row">
+          <span>⚖️ Dürüst Belirsizlik & Çelişki Bildirimi</span>
+        </div>
+        <p class="uncertainty-text" id="uncertainty-text"></p>
+      </section>
+
+      <!-- Filter Tabs -->
+      <div class="category-filters">
+        <button class="filter-chip active" data-filter="ALL">Tümü (<span id="count-all">0</span>)</button>
+        <button class="filter-chip" data-filter="Fikri Mülkiyet & Lisans">Fikri Mülkiyet</button>
+        <button class="filter-chip" data-filter="Veri ve Gizlilik">Gizlilik</button>
+        <button class="filter-chip" data-filter="Tahkim ve Yargı Yetkisi">Tahkim</button>
+        <button class="filter-chip" data-filter="Otomatik Yenileme ve Ücretlendirme">Abonelik</button>
+      </div>
+
+      <!-- Risky Clauses List -->
+      <section class="clauses-list" id="clauses-list">
+        <!-- Rendered dynamically -->
+      </section>
+
+      <!-- Export Actions -->
+      <div class="export-actions">
+        <button id="copy-json-btn" class="secondary-btn">📋 JSON Kopyala</button>
+        <button id="copy-md-btn" class="secondary-btn">📄 Markdown Kopyala</button>
+      </div>
+    </main>
+
+    <!-- Empty / Initial Guide -->
+    <div class="empty-guide" id="empty-view">
+      <div class="guide-card">
+        <div class="guide-icon">🔍</div>
+        <h3>Nasıl Çalışır?</h3>
+        <ul>
+          <li><strong>DOM Analizi:</strong> Sayfadaki sözleşme metni temizlenerek yapılandırılır.</li>
+          <li><strong>Injection Koruması:</strong> Gizli CSS veya adversarial talimatlar karantinaya alınır.</li>
+          <li><strong>Kesin Alıntı Doğrulaması:</strong> Her iddia orijinal kaynak metinden harfi harfine doğrulanır. Dayanağı olmayan maddeler elenir.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="../src/page_extractor.js"></script>
+  <script src="../src/prompt_injection_guard.js"></script>
+  <script src="../src/schema_validator.js"></script>
+  <script src="../src/citation_verifier.js"></script>
+  <script src="../src/rules_engine.js"></script>
+  <script src="../src/llm_client.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

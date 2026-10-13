@@ -1,0 +1,38 @@
+{
+  "id": "eval-01-meta-instagram",
+  "name": "Meta / Instagram Hizmet Koşulları ve Gizlilik Politikası",
+  "documentTitle": "Meta Terms of Service & Privacy Policy",
+  "rawText": "Instagram Terms of Use\n\n1. Welcome to Instagram. Our mission is to bring you closer to the people and things you love.\n\n2. Permissions You Grant to Us. Specifically, when you share, post, or upload content that is covered by intellectual property rights on or in connection with our Service, you grant us a non-exclusive, royalty-free, transferable, sub-licensable, worldwide license to host, use, distribute, modify, run, copy, publicly perform or display, translate, and create derivative works of your content.\n\n3. AI and Model Training. We may use your public content, interactions, and profile information to train our artificial intelligence and machine learning models to develop and improve our generative AI features across Meta products.\n\n4. Updating These Terms. We may modify these terms at any time without prior notice by updating this posting. Your continued use constitutes acceptance.\n\n5. Dispute Resolution. Any claim or dispute arising out of this agreement shall be submitted to binding arbitration in California, and you waive any right to bring or participate in a class action lawsuit.\n\n6. General Provisions. You must be at least 13 years old to use the Service. You can delete your account at any time via settings.",
+  "groundTruth": {
+    "expectedRisks": [
+      {
+        "category": "Fikri Mülkiyet & Lisans",
+        "severity": "Yüksek",
+        "keyword": "royalty-free, transferable, sub-licensable, worldwide license",
+        "description": "Kapsamlı ve telifsiz fikri mülkiyet lisansı"
+      },
+      {
+        "category": "Fikri Mülkiyet & Lisans",
+        "severity": "Kritik",
+        "keyword": "train our artificial intelligence and machine learning models",
+        "description": "Kullanıcı içeriğiyle yapay zeka modelleri eğitimi"
+      },
+      {
+        "category": "Tek Taraflı Değişiklik ve Fesih",
+        "severity": "Yüksek",
+        "keyword": "modify these terms at any time without prior notice",
+        "description": "Önceden bildirimsiz tek taraflı sözleşme değişikliği"
+      },
+      {
+        "category": "Tahkim ve Yargı Yetkisi",
+        "severity": "Kritik",
+        "keyword": "binding arbitration in California, and you waive any right to bring or participate in a class action",
+        "description": "Zorunlu tahkim ve toplu dava hakkından feragat"
+      }
+    ],
+    "safeClauses": [
+      "You must be at least 13 years old to use the Service.",
+      "You can delete your account at any time via settings."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToS-Guard Ayarları | LLM & Güvenlik Yapılandırması</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="settings-container">
+    <header class="settings-header">
+      <div class="header-brand">
+        <span class="logo">🛡️</span>
+        <div>
+          <h1>ToS-Guard Ayarları</h1>
+          <p>Yapay Zeka API Anahtarı ve Güvenlik Parametreleri</p>
+        </div>
+      </div>
+      <div class="badge-offline" id="active-mode-badge">Çevrimdışı Test Modu</div>
+    </header>
+
+    <div class="disclaimer-alert">
+      <span>⚠️</span>
+      <div>
+        <strong>Yasal Uyarı:</strong> Bu uygulama hukuki tavsiye (legal advice) niteliği taşımaz. Şirket şartlarını değerlendirirken bağlayıcı kararlar için bir avukata danışınız.
+      </div>
+    </div>
+
+    <form id="settings-form" class="settings-form">
+      <!-- LLM Provider -->
+      <div class="form-group">
+        <label for="provider-select">LLM Sağlayıcısı</label>
+        <select id="provider-select" class="form-control">
+          <option value="offline_mock">Yerel Kurallı Motor (Ücretsiz, Çevrimdışı, API Key Gerekmez)</option>
+          <option value="openai">OpenAI / Uyumlu API (GPT-4o, GPT-4o-mini, Groq, Ollama)</option>
+          <option value="gemini">Google Gemini API (Gemini 1.5 Flash / Pro)</option>
+          <option value="anthropic">Anthropic Claude API (Claude 3.5 Sonnet / Haiku)</option>
+        </select>
+        <small class="form-hint">page-agent'in demo LLM'i yerine kendi API anahtarınızı tanımlayabilirsiniz.</small>
+      </div>
+
+      <!-- API Key -->
+      <div class="form-group" id="api-key-group">
+        <label for="api-key-input">API Anahtarı (API Key)</label>
+        <div class="input-with-toggle">
+          <input type="password" id="api-key-input" class="form-control" placeholder="sk-... veya AIza...">
+          <button type="button" id="toggle-key-visibility" class="toggle-btn">👁️</button>
+        </div>
+        <small class="form-hint">Anahtarınız yalnızca tarayıcınızın yerel depolama alanında (chrome.storage) saklanır.</small>
+      </div>
+
+      <!-- Model Name -->
+      <div class="form-group" id="model-name-group">
+        <label for="model-name-input">Model Adı</label>
+        <input type="text" id="model-name-input" class="form-control" placeholder="gpt-4o-mini, gemini-1.5-flash, vb.">
+      </div>
+
+      <!-- Base URL -->
+      <div class="form-group" id="base-url-group">
+        <label for="base-url-input">Özel API URL (Opsiyonel / Ollama / Yerel)</label>
+        <input type="text" id="base-url-input" class="form-control" placeholder="Örn: http://localhost:11434/v1/chat/completions">
+        <small class="form-hint">Standart bulut sağlayıcıları için boş bırakınız.</small>
+      </div>
+
+      <!-- Prompt Injection Protection Settings -->
+      <div class="section-title">🛡️ Güvenlik & Doğrulama Ayarları</div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" id="strict-injection-check" checked>
+          <span>Katı Prompt Injection Taraması (Gizli DOM ve şüpheli talimatları izole et)</span>
+        </label>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label>
+          <input type="checkbox" id="require-exact-citation" checked disabled>
+          <span>Zorunlu Alıntı Doğrulaması (Alıntısı olmayan iddialar kesin olarak elenir)</span>
+        </label>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="submit" id="save-settings-btn" class="save-btn">💾 Ayarları Kaydet</button>
+        <button type="button" id="test-connection-btn" class="test-btn">⚡ Bağlantıyı Sına</button>
+      </div>
+
+      <div id="status-toast" class="toast hidden"></div>
+    </form>
+  </div>
+
+  <script src="../src/prompt_injection_guard.js"></script>
+  <script src="../src/schema_validator.js"></script>
+  <script src="../src/rules_engine.js"></script>
+  <script src="../src/llm_client.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
